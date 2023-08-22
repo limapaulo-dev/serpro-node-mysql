@@ -1,15 +1,8 @@
 const mySQL = require('mysql2');
+const mysqlAuthOpt = require('./data/db');
 const Aluno = require('./model/Aluno');
 const DAO = require('./dao/DAO');
 const AlunoDAO = require('./dao/AlunoDAO');
-
-const mysqlAuthOpt = 
-{ 
-    host: 'localhost', 
-    user: 'root', 
-    password: 'mysqlpw', 
-    database: 'node_mysql'
-}
 
 const conn = mySQL.createConnection(mysqlAuthOpt);
 
