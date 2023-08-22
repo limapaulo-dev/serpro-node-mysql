@@ -6,7 +6,7 @@ class AlunoDAO extends DAO {
     this.tableName = "aluno";
   }
 
-  async insertAluno(aluno) {
+  insertAluno(aluno) {
     const sql = `INSERT INTO ${this.tableName} (nome, idade) VALUES (?, ?)`;
     const param = [aluno.getNome(), aluno.getIdade()];
     this._conn.query(sql, param, (err, result) => {
@@ -16,11 +16,11 @@ class AlunoDAO extends DAO {
     });
   }
 
-  async updateAluno(aluno, id) {
+  updateAluno(aluno, id) {
     const sql = `UPDATE ${this.tableName} SET nome = ?, idade = ? WHERE id = ?`;
     const param = [aluno.getNome(), aluno.getIdade(), id];
 
-    this._conn.query(sql, param, (err, result) => {
+    this._conn.promise().query(sql, param, (err, result) => {
       if (err) throw err
       console.log(`Aluno: atualizado com sucesso`)
       return result

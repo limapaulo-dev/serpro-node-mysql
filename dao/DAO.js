@@ -4,7 +4,7 @@ class DAO {
     this.tableName = "tableName";
   }
 
-  async selectAll() {
+  selectAll() {
     const sql = `SELECT * FROM ${this.tableName}`;
 
     this._conn.query(sql, (err, result) => {
@@ -15,7 +15,7 @@ class DAO {
     });
   }
 
-  async selectByID(id) {
+  selectByID(id) {
     const sql = `SELECT * FROM ${this.tableName} WHERE id = ?`;
     const param = [id];
 
@@ -26,7 +26,7 @@ class DAO {
     });
   }
 
-  async deleteByID(id) {
+  deleteByID(id) {
     const sql = `DELETE FROM ${this.tableName} WHERE id = ?`;
     const param = [id];
 
