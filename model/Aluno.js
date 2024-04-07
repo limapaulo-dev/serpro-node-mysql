@@ -1,23 +1,21 @@
 class Aluno {
-    #nome
-    #idade
 
     constructor(nome, idade) {
-        this.#nome = nome
-        this.#idade = idade
+        this._nome = nome
+        this._idade = idade
     }
 
     setNome(nome) {
-        this.#nome = nome
+        this._nome = nome
     }
     getNome(){
-        return this.#nome
+        return this._nome
     }
     setIdade(idade) {
-        this.#idade = idade
+        this._idade = idade
     }
     getIdade(){
-        return this.#idade
+        return this._idade
     }
 }
 

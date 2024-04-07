@@ -9,14 +9,14 @@ const conn = mySQL.createConnection(mysqlAuthOpt);
 const createDB = "CREATE DATABASE IF NOT EXISTS node_mysql";
 // const dropDB = "DROP DATABASE";
 
+const dropTbAluno = "DROP TABLE IF EXISTS aluno";
+
 const createTbAluno = `CREATE TABLE IF NOT EXISTS aluno 
     (
     id INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
     nome VARCHAR(255),
     idade INTEGER
     )`;
-
-const dropTbAluno = "DROP TABLE aluno";
 
 conn.connect(err => {
     if(err) throw err
@@ -49,7 +49,6 @@ conn.connect(err => {
     const aluno9 = new Aluno("Some dude", 74)
     const aluno10 = new Aluno("Last dude", 44)
 
-    const dao = new DAO(conn);
     const alunoDAO = new AlunoDAO(conn);
 
     alunoDAO.insertAluno(aluno1)
@@ -77,7 +76,6 @@ conn.connect(err => {
     alunoDAO.selectByID(7);
     alunoDAO.deleteByID(6);
 
-    const result = alunoDAO.selectAll()
-
     conn.end()
+    console.log("conexão encerrada")
 }); 
